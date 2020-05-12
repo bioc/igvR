@@ -39,17 +39,17 @@ A BedpeInteractionsTrack object
 
   file <- system.file(package="igvR", "extdata", "sixColumn-demo1.bedpe")
   tbl.bedpe <- read.table(file, sep="\t", as.is=TRUE, header=TRUE)
-  dim(tbl.1)  #  32 6
-  track <- BedpeInteractionsTrack("bedpe-6", tbl.1)
+  dim(tbl.bedpe)  #  32 6
+  track <- BedpeInteractionsTrack("bedpe-6", tbl.bedpe)
 
     #------------------------------------------
     #  show the relevant portion of the genome
     #------------------------------------------
 
   shoulder <- 10000
-  roi <- with(tbl, sprintf("\%s:\%d-\%d", chrom1[1], min(start1)-shoulder, max(end2) + shoulder)))
-  showGenomicRegion(igv, roi)
+  roi <- with(tbl.bedpe, sprintf("\%s:\%d-\%d", chrom1[1], min(start1)-shoulder, max(end2) + shoulder))
+  # showGenomicRegion(igv, roi)
 
-  displayTrack(igv, track)
+  # displayTrack(igv, track)
 
 }
